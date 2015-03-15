@@ -31,6 +31,6 @@ en:
         academic_year: "year"
         experience: "Experience"
         is_female: "Gender"
-        need_lab_computer: "need a PC"
-        need_extra_help: 'Training Wheels program'
+        need_lab_comp: "need a PC"
+        need_extra_help: 'apply to the Training Wheels program'
         food_diet: "Special food diet"
