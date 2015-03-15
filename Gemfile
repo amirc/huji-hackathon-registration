@@ -5,7 +5,27 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3',  group: :development
-gem 'pg',       group: :production
+
+group :production do
+  gem 'unicorn'
+
+  # Enable gzip compression on heroku, but don't compress images.
+  gem 'heroku-deflater'
+
+  # Heroku injects it if it's not in there already
+  gem 'rails_12factor'
+
+  gem 'pg'
+end
+
+gem 'memcachier'
+gem 'dalli'
+# Fast IO for memcache
+gem 'kgio'
+
+# Serve static assets through Rack + Memcache
+# https://devcenter.heroku.com/articles/rack-cache-memcached-rails31
+gem 'rack-cache'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
