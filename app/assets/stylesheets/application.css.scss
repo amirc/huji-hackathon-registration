@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import "materialize";
+
+.pad-top-15 {
+  padding-top: 15px;
+}
+
+label.field_with_errors:after{
+  content: ' *';
+  @extend .red-text, .text-lighten-4;
+}

@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+    <div class="container main row">
+      <div class="">
+        <%= image_tag 'poster.jpg', class: 'col s10 offset-s1' %>
+      </div>
+    </div>
+    <div class="blue lighten-5">
+      <div class="section container">
+        <%= yield %>
+      </div>
+    </div>
 </body>
 </html>

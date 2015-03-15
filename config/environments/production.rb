@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # TODO: set as a config parameter
+  # For devise.
+  config.action_mailer.default_url_options = { host: 'registration.hujihackathon.co.il' }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

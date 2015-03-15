@@ -19,5 +19,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+# config/locales/en.yml
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      profile:
+        first_name: "first name"
+        last_name: "last name"
+        academic_institue: "Academic institute"
+        academic_degree: "Degree"
+        academic_year: "year"
+        experience: "Experience"
+        is_female: "Gender"
+        need_lab_computer: "need a PC"
+        need_extra_help: 'Training Wheels program'
+        food_diet: "Special food diet"
