@@ -113,7 +113,7 @@
 
                   <%= details.label :food_diet %><br /><br />
                   <%= details.select :food_diet, {}, {}, class: 'browser-default' do %>
-                      <% %w(none vegetarian vegan else).each do |c| -%>
+                      <% %w(none vegetarian vegan).each do |c| -%>
                           <%= content_tag(:option, c, value: c) %>
                       <% end %>
                   <% end %>

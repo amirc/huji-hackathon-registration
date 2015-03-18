@@ -21,7 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  database: registration
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  database: <%= DB_NAME %>
+  pool: 10
+  username: <%= DB_USER %>
+  password: <%= DB_PASS %>
+  socket: /var/run/mysqld/mysqld.sock
+  reconnect: true

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TeamsApp</title>
+  <title>HUJI Hackathon - Registration</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <% if show_logo %>
     <div class="container main row">
-      <div class="">
+      <div>
         <%= image_tag 'poster.jpg', class: 'col s10 offset-s1' %>
       </div>
     </div>
+    <% end %>
     <div class="blue lighten-5">
       <div class="section container">
         <%= yield %>

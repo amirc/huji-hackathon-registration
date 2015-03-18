@@ -15,7 +15,7 @@ group :production do
   # Heroku injects it if it's not in there already
   gem 'rails_12factor'
 
-  gem 'pg'
+  gem 'mysql2'
 end
 
 gem 'memcachier'
