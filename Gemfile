@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3',  group: :development
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'rails_admin'
 
 group :production do
   gem 'unicorn'
