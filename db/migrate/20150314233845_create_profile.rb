@@ -13,7 +13,7 @@ class CreateProfile < ActiveRecord::Migration
       t.boolean :need_lab_comp
       t.boolean :need_extra_help
       t.text :experience
-      t.references :user, index: true
+      t.references :cur_user, index: true
     end
   end
 end

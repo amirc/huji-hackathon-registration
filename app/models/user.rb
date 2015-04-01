@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile
 
   validates_associated :profile
+
+  def is_waiting
+    profile.is_waiting
+  end
 end
