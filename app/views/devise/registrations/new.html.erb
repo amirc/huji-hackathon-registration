@@ -58,7 +58,7 @@
               <div class="input-field col s12">
                 <%= details.label :is_female %><br />
                 <p>
-                  <%= details.radio_button(:is_female, true, checked: true) %>
+                  <%= details.radio_button(:is_female, true) %>
                   <%= details.label(:is_female_true, 'Female') %>
                 </p>
                 <p>
@@ -75,21 +75,7 @@
                   <div class="input-field col s12">
                     <i class="mdi-social-domain prefix"></i>
                     <%= details.label :academic_institute %><br /><br />
-                    <%= details.select :academic_institute, {}, {}, class: 'browser-default' do %>
-                        <% [['Bar-Ilan University', 'BIU'],
-                            ['Ben-Gurion University of the Negev', 'BGU'],
-                            ['Bezalel Academy of Art and Design', 'Bezalel'],
-                            ['Hadassah Academic College', 'hadassah'],
-                            ['Hebrew University of Jerusalem', 'HUJI'],
-                            ['Open University of Israel', 'OPENU'],
-                            ['Technion - Israel Institute of Technology', 'IIT'],
-                            ['Tel Aviv University', 'TAU'],
-                            ['University of Haifa', 'HU'],
-                            ['Weizmann Institute of Science', 'WIS'],
-                            ['else', 'else']].each do |k,v| -%>
-                            <%= content_tag(:option, k, value: v) %>
-                        <% end %>
-                    <% end %>
+                    <%= details.select :academic_institute, schools_arr, {}, class: 'browser-default' %>
                   </div>
                 </div>
                 <div class="row">
@@ -113,21 +99,13 @@
                   <i class="mdi-action-redeem prefix"></i>
 
                   <%= details.label :food_diet %><br /><br />
-                  <%= details.select :food_diet, {}, {}, class: 'browser-default' do %>
-                      <% %w(none vegetarian vegan).each do |c| -%>
-                          <%= content_tag(:option, c, value: c) %>
-                      <% end %>
-                  <% end %>
+                  <%= details.select :food_diet, %w(none vegetarian vegan), {}, class: 'browser-default' %>
                 </div>
 
                 <div class="input-field col s6">
 
                   <%= details.label :shirt_size %><br /><br />
-                  <%= details.select :shirt_size, {}, {}, class: 'browser-default' do %>
-                      <% %w(S M L XL XXL).each do |c| -%>
-                          <%= content_tag(:option, c, value: c) %>
-                      <% end %>
-                  <% end %>
+                  <%= details.select :shirt_size, %w(S M L XL XXL), {}, class: 'browser-default'%>
                 </div>
               </div>
 

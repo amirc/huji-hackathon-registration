@@ -26,4 +26,18 @@ module Users::RegistrationHelper
 
     html.html_safe
   end
+
+  def schools_arr
+    [['Bar-Ilan University', 'BIU'],
+     ['Ben-Gurion University of the Negev', 'BGU'],
+     ['Bezalel Academy of Art and Design', 'Bezalel'],
+     ['Hadassah Academic College', 'hadassah'],
+     ['Hebrew University of Jerusalem', 'HUJI'],
+     ['Open University of Israel', 'OPENU'],
+     ['Technion - Israel Institute of Technology', 'IIT'],
+     ['Tel Aviv University', 'TAU'],
+     ['University of Haifa', 'HU'],
+     ['Weizmann Institute of Science', 'WIS'],
+     ['else', 'else']]
+  end
 end
