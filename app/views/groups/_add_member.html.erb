@@ -6,10 +6,13 @@
             <div class="alert alert-<%= key %>"><%= value %></div>
         <% end %>
         <form method="post" action="/groups/<%= @group.id %>/add_user">
-          <label for="email">Email:</label>
+          <label for="email">Email of new member:</label>
           <input type="text" name="email" />
           <button class="btn waves-effect waves-light">Add</button>
         </form>
+        <p>
+          In order to add members (up to 5 overall) write the email of the member that will join your group and click ADD.
+        </p>
       </div>
     </div>
 <% end %>

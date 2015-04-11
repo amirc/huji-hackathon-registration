@@ -40,6 +40,7 @@ class GroupsController < ApplicationController
     end
 
     @group.users << user
+    flash['notice'] = "You added #{user.profile.full_name} successfully!"
     render :show
   end
 
