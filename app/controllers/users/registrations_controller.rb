@@ -41,6 +41,7 @@ module Users
                   :shirt_size,
                   :food_diet,
                   :need_lab_comp,
+                  :need_extra_help,
                   :experience,
                   :is_confirmed
               ]
