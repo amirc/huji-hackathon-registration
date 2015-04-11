@@ -2,6 +2,15 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'pages#home'
 
+  get '/waiting', to: 'pages#waiting'
+  get '/rules', to: 'pages#rules'
+
+  post '/groups/:id/add_user', to: 'groups#add_user'
+
+  post 'profiles/:id/leave_group', to: 'profiles#leave_group'
+
+  resources :profiles, only: [:show]
+	resources :groups
   devise_for :users, controllers: {registrations: 'users/registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -34,3 +34,7 @@ en:
         need_lab_comp: "need a PC"
         need_extra_help: 'apply to the Training Wheels program'
         food_diet: "Special food diet"
+        is_confirmed: "I confirm"
+      group:
+        is_looking_for: "Looking for members"
+        looking_for: "What kind of members are you looking for (if you are not looking for members, ignore this field)"

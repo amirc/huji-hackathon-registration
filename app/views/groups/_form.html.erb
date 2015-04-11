@@ -1,0 +1,36 @@
+<%= form_for @group do |f| %>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="mdi-content-create prefix"></i>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="mdi-image-color-lens prefix"></i>
+        <%= f.label :idea %><br />
+        <%= f.text_field :idea%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.check_box :is_looking_for%>
+        <%= f.label :is_looking_for %>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="mdi-action-info prefix"></i>
+        <%= f.label :looking_for %><br />
+        <%= f.text_field :looking_for %>
+      </div>
+    </div>
+    <div>
+      <%= f.button 'Create', type: 'submit', class: 'btn waves-effect waves-light' do %>
+          Submit <i class="mdi-content-send right"></i>
+      <% end %>
+    </div>
+    </div>
+<% end %>

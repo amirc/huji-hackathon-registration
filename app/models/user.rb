@@ -10,7 +10,13 @@ class User < ActiveRecord::Base
 
   validates_associated :profile
 
+  belongs_to :group
+
   def is_waiting
     profile.is_waiting
+  end
+
+  def self.looking_for_team
+    where(group: nil)
   end
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  idea: MyString
+  is_looking_for: false
+  looking_for: MyString
+  admin_id: 
+
+two:
+  name: MyString
+  idea: MyString
+  is_looking_for: false
+  looking_for: MyString
+  admin_id: 

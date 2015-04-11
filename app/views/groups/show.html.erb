@@ -1,0 +1,22 @@
+<div class="container">
+  <h3><%= @group.name %></h3>
+  <p>
+    <% if @group.admin_id == @cur_user.id %>
+        <%= link_to 'Edit', edit_group_url(@group) %>
+    <% end %>
+  </p>
+  <p>
+    <% if @cur_user.group == @group %>
+        <%= link_to 'Leave group', "/profiles/#{@cur_user.id}/leave_group", method: :post ,
+                    :confirm => 'You are about to leave this group, Are you sure?' %>
+    <% end %>
+  </p>
+  <p><span>Our idea:</span> <%= @group.idea %></p>
+  <p><span>Looking for:</span> <%= @group.looking_for %></p>
+  <h5>Members:</h5>
+  <ul>
+    <% @group.profiles.each do |p|%>
+        <li><%= link_to(p.full_name, p)%></li>
+    <% end %>
+  </ul>
+</div>

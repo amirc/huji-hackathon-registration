@@ -1,0 +1,165 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.fields_for :profile, (resource.profile || resource.build_profile) do |details| %>
+        <% unless resource.profile and resource.profile.is_waiting%>
+            <div class="row">
+              <div class="col s12 ">
+                <div class="card-panel  amber lighten-3">
+
+                  <p class="center">Please confirm that you will arrive to the event and that you read the
+                    <%= link_to 'rules', rules_path, target: '_blank' %>
+                  </p>
+                  <% if resource.profile.is_confirmed %>
+                      <div class="row">
+                        <div class="col s12 center">
+                          <i class="green-text mdi-action-done"></i> confirmed
+                        </div>
+                      </div>
+                  <% else %>
+                      <div class="row">
+                        <div class="input-field col s12 center">
+                          <%= details.check_box :is_confirmed %>
+                          <%= details.label :is_confirmed %>
+                        </div>
+                      </div>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+        <% end %>
+    <% end %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="mdi-communication-email prefix"></i>
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+        </div>
+        <% unless resource.profile %>
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="mdi-hardware-security prefix"></i>
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: 'off' %>
+              </div>
+
+              <div class="input-field col s6">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: 'off' %>
+              </div>
+            </div>
+        <% end %>
+        <%= f.fields_for :profile, (resource.profile || resource.build_profile) do |details| %>
+            <div class="row pad-top-15">
+              <div class="input-field col s6">
+                <i class="mdi-social-person prefix"></i>
+                <%= details.label :first_name %><br />
+                <%= details.text_field :first_name %>
+              </div>
+              <div class="input-field  col s6">
+                <%= details.label :last_name %><br />
+                <%= details.text_field :last_name %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="mdi-communication-phone prefix"></i>
+                <%= details.label :phone %><br />
+                <%= details.telephone_field :phone %>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="input-field col s12">
+                <%= details.label :is_female %><br />
+                <p>
+                  <%= details.radio_button(:is_female, true) %>
+                  <%= details.label(:is_female_true, 'Female') %>
+                </p>
+                <p>
+                  <%= details.radio_button(:is_female, false) %>
+                  <%= details.label(:is_female_false, 'Male') %>
+                </p>
+              </div>
+            </div>
+            </div>
+            <div class="col s12 m6">
+
+              <div class="row">
+
+                <div class="input-field col s12">
+                  <i class="mdi-social-domain prefix"></i>
+                  <%= details.label :academic_institute %><br /><br />
+                  <%= details.select :academic_institute, schools_arr, {}, class: 'browser-default' %>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="input-field col s9">
+                  <i class="mdi-social-school prefix"></i>
+
+                  <%= details.label :academic_degree %><br />
+                  <%= details.text_field :academic_degree %>
+                </div>
+                <div class="input-field col s3">
+                  <%= details.label :academic_year %><br />
+                  <%= details.text_field :academic_year %>
+                  <div class="clearfix"	></div>
+
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="input-field col s6">
+                  <i class="mdi-action-redeem prefix"></i>
+
+                  <%= details.label :food_diet %><br /><br />
+                  <%= details.select :food_diet, %w(none vegetarian vegan), {}, class: 'browser-default' %>
+                </div>
+
+                <div class="input-field col s6">
+
+                  <%= details.label :shirt_size %><br /><br />
+                  <%= details.select :shirt_size, %w(S M L XL XXL), {}, class: 'browser-default'%>
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="input-field col s6">
+                  <i class="mdi-content-save prefix"></i>
+
+                  <%= details.check_box :need_lab_comp%>
+                  <%= details.label :need_lab_comp,  class: 'tooltipped', data: {position: 'top', delay: '50', tooltip: 'Lab computers are with Linux'} %>
+                </div>
+                <div class="input-field col s6">
+                  <%= details.check_box :need_extra_help%>
+                  <%= details.label :need_extra_help,  class: 'tooltipped', data: {position: 'top', delay: '50', tooltip: 'For more information see FAQ at the website'} %>
+                </div>
+              </div>
+
+              <div class="row pad-top-15">
+                <div class="input-field col s12">
+                  <i class="mdi-editor-border-color prefix"></i>
+
+                  <%= details.text_area :experience, class: 'materialize-textarea tooltipped', data: {position: 'top', delay: '50', tooltip: 'Skills, projects, work experience, etc or "None"'} %>
+                  <%= details.label :experience %> <br />
+                </div>
+              </div>
+
+
+
+        <% end %>
+        <div>
+          <%= f.button 'Register', type: 'submit', class: 'btn waves-effect waves-light' do %>
+              Register <i class="mdi-content-send right"></i>
+          <% end %>
+        </div>
+        </div>
+
+        </div>
+    </div>
+<% end %>

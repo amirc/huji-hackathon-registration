@@ -1,0 +1,26 @@
+<div class="container">
+
+  <% @groups.each do |group| %>
+      <div class="row">
+        <div class="col s12 m8 offset-m2">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title orange-text text-lighten-2"><%= group.name %></span>
+              <p class="members">
+                <span class="orange-text text-lighten-2">We Are:</span>
+                <% group.profiles.each do |p|%>
+                  <span class="member"><%= link_to(p.full_name, p)%></span>
+                <% end %>
+              </p>
+              <p><span class="orange-text text-lighten-2">The Idea:</span> <%= group.idea %></p>
+              <p><span class="orange-text text-lighten-2">Looking For:</span> <%= group.looking_for %> </p>
+            </div>
+            <div class="card-action">
+              <a href="mailto:<%= group.admin.email%>">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+

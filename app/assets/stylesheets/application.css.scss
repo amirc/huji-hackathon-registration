@@ -23,3 +23,16 @@ label.field_with_errors:after{
   content: ' *';
   @extend .red-text, .text-lighten-4;
 }
+
+a#logo-container img {
+  max-width: 64px;
+}
+
+.members {
+  .member {
+    a {
+      color: rgb(250, 212, 92);
+      text-transform: none;
+    }
+  }
+}

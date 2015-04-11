@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HUJI Hackathon - Registration</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-<script type="text/javascript">
+    <head>
+      <title>HUJI Hackathon</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-60765912-1']);
-  _gaq.push(['_setDomainName', 'hujihackathon.co.il']);
-  _gaq.push(['_trackPageview']);
-  </script>
-</head>
-<body>
-    <% if show_logo %>
-    <div class="container main row">
-      <div>
-        <%= image_tag 'poster.jpg', class: 'col s10 offset-s1' %>
-      </div>
-    </div>
-    <% end %>
-    <div class="blue lighten-5">
-      <div class="section container">
+        <nav class="hack darken-1" role="navigation" id="main-nav">
+          <div class="container">
+            <div class="nav-wrapper">
+              <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+              <a id="logo-container" href="/" class="brand-logo"><%= image_tag 'logo3.png'%></a>
+              <div class="clearfix" ></div>
+              <ul class="right">
+                <%= render '/layouts/menu_items' %>
+              </ul>
+
+              <ul id="nav-mobile" class="side-nav">
+                <%= render '/layouts/menu_items' %>
+              </ul>
+              <div class="clearfix" ></div>
+
+              <div class="clearfix" ></div>
+
+            </div>
+          </div>
+        </nav>
+
+        <div class="clearfix" ></div>
+
         <%= yield %>
-      </div>
-    </div>
-<script type="text/javascript">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+        <script type="text/javascript">
 
-</script>
-</body>
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+
+        <footer class="page-footer hack">
+          <div class="container">
+            <span class="white-text">Copyright © 2015  </span><a class="grey-text text-lighten-2" href="#!">HUJI Hackathon</a>
+          </div>
+        </footer>
+
+    </body>
 </html>

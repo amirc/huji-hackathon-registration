@@ -1,0 +1,14 @@
+<div class="container">
+  <%= render 'form' %>
+  <% if @cur_user == @group.admin %>
+      <h3>Add a member</h3>
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <form method="post" action="/groups/<%= @group.id %>/add_user">
+      <label for="email">Email:</label>
+      <input type="text" name="email" />
+      <button>Submit</button>
+    </form>
+  <% end %>
+</div>

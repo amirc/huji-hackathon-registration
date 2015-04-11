@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401154718) do
+ActiveRecord::Schema.define(version: 20150406001020) do
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.string   "idea"
+    t.boolean  "is_looking_for"
+    t.string   "looking_for"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["admin_id"], name: "index_groups_on_admin_id"
 
   create_table "profiles", force: true do |t|
     t.string  "first_name"
@@ -27,8 +39,6 @@ ActiveRecord::Schema.define(version: 20150401154718) do
     t.boolean "need_extra_help"
     t.text    "experience"
     t.integer "user_id"
-    t.string  "skills"
-    t.text    "public_about"
     t.boolean "is_confirmed"
     t.boolean "is_waiting",         default: true
   end
@@ -52,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150401154718) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "group_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

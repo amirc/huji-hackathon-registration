@@ -1,5 +1,5 @@
 <h2 class="center header">Registration</h2>
-<h4>We are sorry, but the event is almost full. Please sign up to the waiting list.</h4>
+<h4 class="center">We are sorry, but the event is almost full. Please sign up to the waiting list.</h4>
 <% if is_errors? %>
     <div class="row red lighten-3 valign-wrapper">
       <div class="col s1 center hide-on-med-and-down">
@@ -11,8 +11,10 @@
       </div>
     </div>
 <% end %>
-<div class="row">
-  <div class="col s12 m6">
-    <%= render 'form' %>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <%= render 'form' %>
+    </div>
   </div>
 </div>

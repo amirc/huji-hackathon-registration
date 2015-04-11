@@ -1,0 +1,18 @@
+<% if @cur_user %>
+    <li>
+      <a href="/users/edit">Edit Profile</a>
+    </li>
+    <li>
+      <% if @cur_user.group_id %>
+        <%= link_to 'My Group', @cur_user.group %>
+      <% else %>
+        <%= link_to 'Create Group', new_group_url %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to 'Look for a group', groups_url%>
+    </li>
+    <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </li>
+<% end %>
