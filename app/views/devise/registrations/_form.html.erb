@@ -41,7 +41,7 @@
             <%= f.email_field :email, autofocus: true %>
           </div>
         </div>
-        <% unless resource.profile %>
+        <% unless resource.profile and not resource.profile.is_waiting%>
             <div class="row">
               <div class="input-field col s6">
                 <i class="mdi-hardware-security prefix"></i>
