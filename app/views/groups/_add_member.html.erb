@@ -1,0 +1,15 @@
+<% if @cur_user == @group.admin %>
+    <div class="row">
+      <div class="col s4">
+        <h5>Add a member</h5>
+        <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+        <form method="post" action="/groups/<%= @group.id %>/add_user">
+          <label for="email">Email:</label>
+          <input type="text" name="email" />
+          <button class="btn waves-effect waves-light">Add</button>
+        </form>
+      </div>
+    </div>
+<% end %>
