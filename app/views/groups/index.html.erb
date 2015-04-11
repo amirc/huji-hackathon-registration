@@ -1,5 +1,11 @@
 <div class="container">
-
+  <% if @groups.empty? %>
+      <div class="row">
+        <div class="col s12">
+          <p>No group is looking for new members</p>
+        </div>
+      </div>
+  <% end %>
   <% @groups.each do |group| %>
       <div class="row">
         <div class="col s12 m8 offset-m2">
