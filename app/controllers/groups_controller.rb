@@ -13,12 +13,13 @@ class GroupsController < ApplicationController
 
   # groups/:id/add_user
   # { "email": "asd@asd.com"}
+  # todo: fix this ugly method. make less then 1,000,000 requests
   def add_user
     @group = Group.includes(:profiles).find(params[:id])
     if @group.admin_id != cur_user.id
       render text: "You don't have permission to do that!"
       return
-    elsif @group.profiles.count >= WebConfig::MAX_GROUP_MEMBERS
+    elsif @group.profiles.count >= WebConfig::MAX_GROUP_MEMBERS #TODO: add to group members count
       flash['notice'] = 'There is no room in the group for more members'
       render :edit
       return
@@ -39,6 +40,11 @@ class GroupsController < ApplicationController
       return
     end
 
+    if @group.profiles.count == WebConfig::MAX_GROUP_MEMBERS - 1 #TODO: add to group members count
+      @group.is_looking_for = false
+      @group.save
+    end
+
     @group.users << user
     flash['notice'] = "You added #{user.profile.full_name} successfully!"
     render :show
@@ -49,10 +55,18 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.where(admin_id: cur_user.id).find(params[:id])
-    @group.update(group_params)
-    @group.save!
-    redirect_to @group
+    @group = Group.find(params[:id])
+
+    if @group.admin_id != cur_user.id
+      render text: "You don't have permission to do that.", status: :forbidden
+    end
+
+    if @group.update(group_params) #TODO: validate that if group members are 5 or above, make is_looking_for = false
+      redirect_to @group
+    else
+      flash['notice'] = 'Error!'
+      render :edit
+    end
   end
 
   def new
