@@ -1,6 +1,6 @@
 <% if @cur_user %>
     <li>
-      <a href="/users/edit">Edit Profile</a>
+      <%= link_to 'Edit profile', edit_user_registration_path %>
     </li>
     <li>
       <% if @cur_user.group_id %>

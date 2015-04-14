@@ -1,4 +1,30 @@
 <div class="container">
+      <div class="row center">
+        <h3>Next steps:</h3>
+        <ul>
+          <li>
+            <% if @cur_user.profile.is_confirmed %>
+                <i class="green-text mdi-action-done"></i> Confirm participation and rules
+            <% else %>
+                <span>1)</span>
+                <%= link_to 'Confirm participation and rules', edit_user_registration_path %>
+            <% end %>
+          </li>
+          <li>
+            <% if @cur_user.group %>
+                <i class="green-text mdi-action-done"></i> Create a group of find a group
+            <% else %>
+                2) <%= link_to 'Create a group', new_group_url %> or <%= link_to 'Find a group', groups_url %>
+            <% end %>
+
+          </li>
+          <% if @cur_user.group and @cur_user.profile.is_confirmed %>
+              <li>
+                3) Hack!
+              </li>
+          <% end %>
+        </ul>
+      </div>
   <div class="row">
       <%= image_tag 'poster.jpg', alt: 'HUJI Hackathon 2015', class: 'col s6 offset-s3'%>
   </div>
