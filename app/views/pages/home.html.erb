@@ -6,7 +6,7 @@
             <li>
               <% if @cur_user.profile.is_confirmed %>
                   <i class="green-text mdi-action-done"></i>
-                    t('accept_rules_and_confirm')
+                    <%= t('accept_rules_and_confirm') %>
               <% else %>
                   <span>1)</span>
                   <%= link_to t('accept_rules_and_confirm'), edit_user_registration_path %>
